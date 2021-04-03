@@ -137,6 +137,7 @@ form:after {
 	z-index: -2;
 }
 #content form { margin: 0 20px; position: relative }
+#content form input[type="text"],
 #content form input[type="email"],
 #content form input[type="password"] {
 	-webkit-border-radius: 3px;
@@ -154,12 +155,12 @@ form:after {
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
-	background: #eae7e7 url(img/form-icons.png) no-repeat;
+	background: #eae7e7 no-repeat;
 	border: 1px solid #c8c8c8;
 	color: #777;
 	font: 13px Helvetica, Arial, sans-serif;
 	margin: 0 0 10px;
-	padding: 15px 10px 15px 40px;
+	padding: 15px 10px 15px 15px;
 	width: 80%;
 }
 #content form input[type="text"]:focus,
