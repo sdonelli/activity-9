@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src="js/login.js"></script>
+    </head>
+
+    <body>
+        <div id="container" class="container">
+            <section id="content">
+                <form id="login-form" action="">
+                    <h1 id="login-form-title">LOGIN FORM</h1>
+                    <div>
+                        <input id="email" type="email" placeholder="Email" required/>
+                    </div>
+                    <div>
+                        <input id="password" type="password" placeholder="Password" minlength="8" required/>
+                    </div>
+                    <div>
+                        <input id="sign-in" type="submit" value="Sign in" onclick="login(); return false;"/>
+                        <div id="login-not-success">User or password are invalid.</div>
+                        <a id="register" href="register.html">Don't you have an account?</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </body>
+
+</html>
