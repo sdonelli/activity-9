@@ -5,10 +5,32 @@
         <meta charset="utf-8">
         <title>Register</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script src="js/register.js"></script>
     </head>
 
     <body>
-        <h1>Not implemented yet</h1>
+        <div id="container" class="container">
+            <section id="content">
+                <form id="register-form" action="">
+                    <h1 id="register-form-title">REGISTER</h1>
+                    <div>
+                        <input id="email" type="email" placeholder="Email" required/>
+                    </div>
+                    <div>
+                        <input id="full-name" type="text" placeholder="Full name" required/>
+                    </div>
+                    <div>
+                        <input id="password" type="password" placeholder="Password" minlength="8" required/>
+                    </div>
+                    <div>
+                        <input id="confirm-password" type="password" placeholder="Confirm password" minlength="8" required/>
+                    </div>
+                    <div>
+                        <input id="register" type="submit" value="Register" onclick="register(); return false;"/>
+                    </div>
+                </form>
+            </section>
+        </div>
     </body>
 
 </html>
