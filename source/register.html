@@ -16,17 +16,21 @@
                     <div>
                         <input id="email" type="email" placeholder="Email" required/>
                     </div>
+                    <div id="email-error" class="error">(innerHTML)</div>
                     <div>
                         <input id="full-name" type="text" placeholder="Full name" required/>
                     </div>
+                    <div id="full-name-error" class="error">(innerHTML)</div>
                     <div>
                         <input id="password" type="password" placeholder="Password" minlength="8" required/>
                     </div>
+                    <div id="password-error" class="error">(innerHTML)</div>
                     <div>
                         <input id="confirm-password" type="password" placeholder="Confirm password" minlength="8" required/>
                     </div>
+                    <div id="confirm-password-error" class="error">(innerHTML)</div>
                     <div>
-                        <input id="register" type="submit" value="Register" onclick="register(); return false;"/>
+                        <input id="register" type="submit" value="Register" onclick="registerUser(); return false;"/>
                     </div>
                 </form>
             </section>

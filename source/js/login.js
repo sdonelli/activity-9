@@ -15,12 +15,12 @@ function isExistingUser() {
     for (var index = 0; index < users.length ; index++ ) {
         if (users[index].email === email && users[index].password === password) {
             console.log("It's a existing user.");
-            document.getElementById('login-not-success').style.display = "none";
+            document.getElementById("login-not-success").style.display = "none";
             return true;
         }
     }
 
     console.log("User doesn't exist.");
-    document.getElementById('login-not-success').style.display = "block";
+    document.getElementById("login-not-success").style.display = "block";
     return false;
 }
