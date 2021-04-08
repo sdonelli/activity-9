@@ -5,7 +5,6 @@
         <meta charset="utf-8">
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <script src="js/login.js"></script>
     </head>
 
     <body>
@@ -20,13 +19,15 @@
                         <input id="password" type="password" placeholder="Password" minlength="8" required/>
                     </div>
                     <div>
-                        <input id="sign-in" type="submit" value="Sign in" onclick="login(); return false;"/>
+                        <input id="sign-in" type="submit" value="Sign in"/>
                         <div id="login-not-success">Email or password are invalid.</div>
                         <a id="register" href="register.html">Don't you have an account?</a>
                     </div>
                 </form>
             </section>
         </div>
+
+        <script src="js/login.js"></script>
     </body>
 
 </html>
