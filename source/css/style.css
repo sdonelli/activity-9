@@ -221,10 +221,12 @@ form:after {
     margin: 30px 15px 0 0;
     text-decoration: underline;
 }
-#login-not-success {
+#submit-values {
 	display: none;
-	color: #ed1c24;
-	font: bold 12px Helvetica, Arial, sans-serif;
+	color: #1f1ced;
+	font: bold 10px Helvetica, Arial, sans-serif;
+	margin: 0 0 10px;
+	padding: 0px 25px 0px 35px;
 }
 .error {
 	display: none;
