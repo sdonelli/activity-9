@@ -1,92 +1,97 @@
-function registerUser() {
-    var email = document.getElementById("email").value;
-    var isValidEmail = validateEmail(email);
+window.addEventListener("load", function() {
 
-    var fullName = document.getElementById("full-name").value;
-    var isValidFullName = validateFullName(fullName);
+    var form = document.querySelector("form");
+    
+    function registerUser(event) {
+        event.preventDefault();
 
-    var password = document.getElementById("password").value;
-    var isValidPassword = validatePassword(password);
+        var isValidEmail = validateEmail();    
+        var isValidFullName = validateFullName();
+        var isValidPassword = validatePassword();
+        var isValidConfirmPassword = validateConfirmPassword();
+    
+        if (isValidEmail && isValidFullName && isValidPassword && isValidConfirmPassword) {
+            console.log("Register is success.");
+        } else {
+            console.log("Register is not success.");
+        }
+    }
+        
+    function validateFullName() {
+        var fullNameValue = document.getElementById("full-name").value;
 
-    var confirmPassword = document.getElementById("confirm-password").value;
-    var isValidConfirmPassword = validateConfirmPassword(confirmPassword);
+        var fullNameFormat = /^[A-Za-z]+\s+[A-Za-z]/;
+        if (fullNameValue < 6) {
+            document.getElementById("full-name-error").innerHTML = "Full name should have at least 6 characters.";
+            document.getElementById("full-name-error").style.display = "block";
+            return false;
+        } else if (!fullNameValue.match(fullNameFormat)) {
+            document.getElementById("full-name-error").innerHTML = "Full name should only contains letters and spaces.";
+            document.getElementById("full-name-error").style.display = "block";
+            return false;
+        }
+    
+        document.getElementById("full-name-error").style.display = "none";
+        return true;
+    }
+    
+    function validateEmail() {
+        var emailValue = document.getElementById("email").value;
 
-    var areMatchedPasswords = false;
-    if (isValidPassword && isValidConfirmPassword) {
-        areMatchedPasswords = areSamePassword(password, confirmPassword);
+        var emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (!emailValue.match(emailFormat)) {
+            document.getElementById("email-error").innerHTML = "Valid email is required.";
+            document.getElementById("email-error").style.display = "block";
+            return false;
+        }
+    
+        document.getElementById("email-error").style.display = "none";
+        return true;
     }
 
-    if (isValidEmail && isValidFullName 
-        && isValidPassword && isValidConfirmPassword && areMatchedPasswords) {
-        console.log("Register is success.");
-    } else {
-        console.log("Register is not success.");
+    function validatePassword() {
+        var passwordValue = document.getElementById("password").value;
+        
+        var passwordFormat = /^[A-Za-z0-9]+/;
+        if (!passwordValue.match(passwordFormat)) {
+            document.getElementById("password-error").innerHTML = "Password can only contains letters and numbers.";
+            document.getElementById("password-error").style.display = "block";
+            return false;
+        } else if (passwordValue.length < 8) {
+            document.getElementById("password-error").innerHTML = "Password should have at least 8 characters.";
+            document.getElementById("password-error").style.display = "block";
+            return false;
+        }
+    
+        document.getElementById("password-error").style.display = "none";
+        return true;
     }
-}
+    
+    function validateConfirmPassword() {
+        var passwordValue = document.getElementById("password").value;  
+        var confirmPasswordValue = document.getElementById("confirm-password").value;
 
-function validateEmail(email) {
-    if (email == "") {
-        document.getElementById("email-error").innerHTML = "Email is required.";
-        document.getElementById("email-error").style.display = "block";
-        return false;
+        if (passwordValue != confirmPasswordValue) {
+            document.getElementById("confirm-password-error").innerHTML = "Password and confirm password should match.";
+            document.getElementById("confirm-password-error").style.display = "block";  
+            return false;
+        }
+    
+        document.getElementById("confirm-password-error").style.display = "none";  
+        return true;
     }
+    
+    var emailField = document.getElementById("email");
+    emailField.addEventListener("blur", validateEmail);
 
-    document.getElementById("email-error").style.display = "none";
-    return true;
-}
+    var fullNameField = document.getElementById("full-name");
+    fullNameField.addEventListener("blur", validateFullName);
 
-function validateFullName(fullName) {
-    if (fullName == "") {
-        document.getElementById("full-name-error").innerHTML = "Full name is required.";
-        document.getElementById("full-name-error").style.display = "block";
-        return false;
-    } else if (!fullName.match(/^[A-Za-z]+$/)) {
-        document.getElementById("full-name-error").innerHTML = "Full name should only contains letters.";
-        document.getElementById("full-name-error").style.display = "block";
-        return false;
-    }
+    var passwordField = document.getElementById("password");
+    passwordField.addEventListener("blur", validatePassword);
 
-    document.getElementById("full-name-error").style.display = "none";
-    return true;
-}
+    var confirmPasswordField = document.getElementById("confirm-password");
+    confirmPasswordField.addEventListener("blur", validateConfirmPassword)
 
-function validatePassword(password) {
-    if (password == "") {
-        document.getElementById("password-error").innerHTML = "Password is required.";
-        document.getElementById("password-error").style.display = "block";
-        return false;
-    } else if (password.length < 8) {
-        document.getElementById("password-error").innerHTML = "Password should have at least 8 characters.";
-        document.getElementById("password-error").style.display = "block";
-        return false;
-    }
-
-    document.getElementById("password-error").style.display = "none";
-    return true;
-}
-
-function validateConfirmPassword(confirmPassword) {
-    if (confirmPassword == "") {
-        document.getElementById("confirm-password-error").innerHTML = "Confirm password is required.";
-        document.getElementById("confirm-password-error").style.display = "block";
-        return false;
-    } else if (confirmPassword.length < 8) {
-        document.getElementById("confirm-password-error").innerHTML = "Confirm password should have at least 8 characters.";
-        document.getElementById("confirm-password-error").style.display = "block";
-        return false;
-    }
-
-    document.getElementById("confirm-password-error").style.display = "none";
-    return true;
-}
-
-function areSamePassword(password, confirmPassword) {
-    if (password != confirmPassword) {
-        document.getElementById("confirm-password-error").innerHTML = "Password and confirm password should match.";
-        document.getElementById("confirm-password-error").style.display = "block";  
-        return false;
-    }
-
-    document.getElementById("confirm-password-error").style.display = "none";  
-    return true;
-}
+    form.addEventListener("submit", registerUser);
+});
