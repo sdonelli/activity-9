@@ -38,9 +38,11 @@ window.addEventListener("load", function() {
 
     var emailField = document.getElementById("email");
     emailField.addEventListener("blur", validateEmail);
+    emailField.addEventListener("focus", removeEmailError);
 
     var passwordField = document.getElementById("password");
     passwordField.addEventListener("blur", validatePassword);
+    passwordField.addEventListener("focus", removePasswordError);
 
     form.addEventListener("submit", login);
 }); 

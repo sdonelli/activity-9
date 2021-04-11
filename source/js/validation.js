@@ -61,3 +61,19 @@ function validateConfirmPassword() {
     document.getElementById("confirm-password-error").style.display = "none";  
     return true;
 }
+
+function removeEmailError() {
+    document.getElementById("email-error").style.display = "none";
+}
+
+function removePasswordError() {
+    document.getElementById("password-error").style.display = "none";
+}
+
+function removeConfirmPasswordError() {
+    document.getElementById("confirm-password-error").style.display = "none";
+}
+
+function removeFullNameError() {
+    document.getElementById("full-name-error").style.display = "none";
+}

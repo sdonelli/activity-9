@@ -19,15 +19,19 @@ window.addEventListener("load", function() {
         
     var emailField = document.getElementById("email");
     emailField.addEventListener("blur", validateEmail);
+    emailField.addEventListener("focus", removeEmailError);
 
     var fullNameField = document.getElementById("full-name");
     fullNameField.addEventListener("blur", validateFullName);
+    fullNameField.addEventListener("focus", removeFullNameError);
 
     var passwordField = document.getElementById("password");
     passwordField.addEventListener("blur", validatePassword);
+    passwordField.addEventListener("focus", removePasswordError);
 
     var confirmPasswordField = document.getElementById("confirm-password");
     confirmPasswordField.addEventListener("blur", validateConfirmPassword)
+    confirmPasswordField.addEventListener("focus", removeConfirmPasswordError);
 
     form.addEventListener("submit", registerUser);
 });
