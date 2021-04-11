@@ -1,4 +1,4 @@
-export function validateFullName() {
+function validateFullName() {
     var fullNameValue = document.getElementById("full-name").value;
 
     var fullNameFormat = /^[A-Za-z]+\s+[A-Za-z]/;
@@ -16,7 +16,7 @@ export function validateFullName() {
     return true;
 }
 
-export function validateEmail() {
+function validateEmail() {
     var emailValue = document.getElementById("email").value;
 
     var emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -30,7 +30,7 @@ export function validateEmail() {
     return true;
 }
 
-export function validatePassword() {
+function validatePassword() {
     var passwordValue = document.getElementById("password").value;
     
     var passwordFormat = /^[A-Za-z0-9]+/;
@@ -48,7 +48,7 @@ export function validatePassword() {
     return true;
 }
 
-export function validateConfirmPassword() {
+function validateConfirmPassword() {
     var passwordValue = document.getElementById("password").value;  
     var confirmPasswordValue = document.getElementById("confirm-password").value;
 

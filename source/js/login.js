@@ -8,38 +8,6 @@ window.addEventListener("load", function() {
 
     var form = document.querySelector("form");
 
-    function validateEmail() {
-        var emailValue = document.getElementById("email").value;
-
-        var emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        if (!emailValue.match(emailFormat)) {
-            document.getElementById("email-error").innerHTML = "Valid email is required.";
-            document.getElementById("email-error").style.display = "block";
-            return false;
-        }
-    
-        document.getElementById("email-error").style.display = "none";
-        return true;
-    }
-
-    function validatePassword() {
-        var passwordValue = document.getElementById("password").value;
-        
-        var passwordFormat = /^[A-Za-z0-9]+/;
-        if (!passwordValue.match(passwordFormat)) {
-            document.getElementById("password-error").innerHTML = "Password can only contains letters and numbers.";
-            document.getElementById("password-error").style.display = "block";
-            return false;
-        } else if (passwordValue.length < 8) {
-            document.getElementById("password-error").innerHTML = "Password should have at least 8 characters.";
-            document.getElementById("password-error").style.display = "block";
-            return false;
-        }
-    
-        document.getElementById("password-error").style.display = "none";
-        return true;
-    }
-
     function login(event) {
         event.preventDefault();
 
