@@ -15,6 +15,9 @@ window.addEventListener("load", function() {
         } else {
             console.log("Register is not success.");
         }
+
+        displayInputValues();
+        jsonPlaceholderRequest();
     }
         
     var emailField = document.getElementById("email");

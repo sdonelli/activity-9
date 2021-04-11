@@ -11,14 +11,9 @@ window.addEventListener("load", function() {
     function login(event) {
         event.preventDefault();
 
-        var emailValue = document.getElementById("email").value;  
-        var passwordValue = document.getElementById("password").value;
-
-        var submitValues = document.getElementById("submit-values");
-        submitValues.innerHTML = "Email: " + emailValue + " Password: " + passwordValue;
-        submitValues.style.display = "block";
-        
-        return isExistingUser();  
+        displayInputValues();
+        isExistingUser();  
+        jsonPlaceholderRequest();
     }
 
     function isExistingUser() {
