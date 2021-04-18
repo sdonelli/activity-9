@@ -11,13 +11,35 @@ window.addEventListener("load", function() {
         var isValidConfirmPassword = validateConfirmPassword();
     
         if (isValidEmail && isValidFullName && isValidPassword && isValidConfirmPassword) {
-            console.log("Register is success.");
-        } else {
-            console.log("Register is not success.");
+            var headers = new Headers();
+            headers.append("Accept", "application/json");
+            headers.append("Content-Type", "application/json");
+            
+            fetch("http://localhost:4000/users/register", {
+              method: 'POST',
+              body: JSON.stringify(buildRegisterRequest()),
+              headers: headers
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
         }
 
         displayInputValues();
         jsonPlaceholderRequest();
+    }
+
+    function buildRegisterRequest() {
+        var emailValue = document.getElementById("email").value;
+        var fullNameValue = document.getElementById("full-name").value;
+        var passwordValue = document.getElementById("password").value;
+
+        var request = {
+            email: emailValue,
+            fullName: fullNameValue,
+            password: passwordValue,
+        };
+
+        return request;  
     }
         
     var emailField = document.getElementById("email");
