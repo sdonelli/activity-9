@@ -1,9 +1,3 @@
-/* Data for testing */
-var users = [
-    { email:"john@gmail.com", password:"12345678" },
-    { email:"paul@outlook.com", password:"abcdefgh" }
-];
-
 window.addEventListener("load", function() {
 
     var form = document.querySelector("form");
@@ -12,23 +6,23 @@ window.addEventListener("load", function() {
         event.preventDefault();
 
         displayInputValues();
-        isExistingUser();  
-        jsonPlaceholderRequest();
-    }
 
-    function isExistingUser() {
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-    
-        for (var index = 0; index < users.length ; index++ ) {
-            if (users[index].email === email && users[index].password === password) {
-                console.log("It's a existing user.");
-                return true;
-            }
-        }
-    
-        console.log("User doesn't exist.");
-        return false;
+        var emailValue = document.getElementById("email").value;
+        var passwordValue = document.getElementById("password").value;
+
+        var headers = new Headers();
+        headers.append("Accept", "application/json");
+        headers.append("Content-Type", "application/json");
+            
+        fetch("http://localhost:4000/login", {
+          method: 'PUT',
+          body: JSON.stringify({ email: emailValue, password: passwordValue }),
+          headers: headers
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+
+        jsonPlaceholderRequest();
     }
 
     var emailField = document.getElementById("email");
