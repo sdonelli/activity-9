@@ -1,4 +1,5 @@
 exports.config = {
+    sync: true,
     //
     // ====================
     // Runner Configuration
