@@ -36,7 +36,8 @@
     "babel-jest": "^26.6.3",
     "chromedriver": "^90.0.0",
     "jest": "^26.6.3",
-    "wdio-chromedriver-service": "^7.0.0"
+    "wdio-chromedriver-service": "^7.0.0",
+    "wdio-intercept-service": "^4.1.4"
   },
   "dependencies": {
     "@wdio/cli": "^7.5.7",

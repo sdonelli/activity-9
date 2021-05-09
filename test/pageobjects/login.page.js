@@ -52,6 +52,18 @@ class LoginPage extends Page {
     return super.open("login.html");
   }
 
+  expectSuccessRequest() {
+    browser.expectRequest('PUT', 'http://localhost:4000/login', 200);
+  }
+
+  getLoginResponse() {
+    return browser.getRequest(0).response.body.message;
+  }
+
+  expectFailureRequest() {
+    browser.expectRequest('PUT', 'http://localhost:4000/login', 401);
+  }
+
 }
 
 module.exports = new LoginPage();

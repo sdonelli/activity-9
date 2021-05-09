@@ -3,6 +3,8 @@ const RegisterPage = require('../pageobjects/register.page');
 describe('Register in the App', () => {
     it('should register when data is valid', () => {
         RegisterPage.open();
+        RegisterPage.setupInterceptor();
+        RegisterPage.expectSuccessRequest();
         RegisterPage.register('Sincere@april.biz', 'Leanne Graham', '12345678', '12345678');
 
         expect(RegisterPage.getMessage()).toHaveTextContaining('Email: Sincere@april.biz Full name: Leanne Graham Password: 12345678 Confirm password: 12345678');
@@ -11,6 +13,9 @@ describe('Register in the App', () => {
         expect(RegisterPage.fullNameError).toHaveText('');
         expect(RegisterPage.passwordError).toHaveText('');
         expect(RegisterPage.confirmPasswordError).toHaveText('');
+
+        RegisterPage.assertRequests();
+        expect(RegisterPage.getRegisterResponse()).toBe('User has been created.');
     });
 
     it('should not register when email and full name are invalid', () => {

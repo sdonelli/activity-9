@@ -58,6 +58,14 @@ class RegisterPage extends Page {
     return super.open("register.html");
   }
 
+  expectSuccessRequest() {
+    browser.expectRequest('POST', 'http://localhost:4000/users/register', 200);
+  }
+
+  getRegisterResponse() {
+    return browser.getRequest(0).response.body.message;
+  }
+
 }
 
 module.exports = new RegisterPage();

@@ -17,4 +17,15 @@ module.exports = class Page {
     }
   }
 
+  setupInterceptor() {
+    browser.setupInterceptor();
+  }
+
+  assertRequests() {
+    browser.assertRequests();
+  }
+
+  resetRequestExpectations() {
+    browser.resetExpectations();
+  }
 };
