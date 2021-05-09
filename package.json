@@ -9,6 +9,8 @@
   "scripts": {
     "test": "jest --color",
     "test-wdio": "npx wdio run ./wdio.conf.js",
+    "test-login": "npx wdio run ./wdio.conf.js --spec login.e2e.js",
+    "test-register": "npx wdio run ./wdio.conf.js --spec register.e2e.js",
     "test-coverage": "jest --coverage --color"
   },
   "jest": {

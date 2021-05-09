@@ -46,8 +46,6 @@ class LoginPage extends Page {
 
   setEmail(email) {
     (this.inputEmail).setValue(email);
-    // workaround to execute the onBlur event.
-    (this.inputPassword).click();
   }
 
   open() {
